@@ -1,3 +1,11 @@
+# Environment variables
+.env
+
+# Odoo data directories
+data/
+addons/*
+!addons/custom_addons/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -20,37 +28,14 @@ wheels/
 .installed.cfg
 *.egg
 
-# Odoo specific
+# IDE
+.vscode/
+.idea/
+
+# Logs
 *.log
-*.pot
-*.pyc
-*.pyo
-*.mo
-*.pot
-*.pot~
-*.po~
-*.bak
+
+# Local development
+.DS_Store
 *.swp
-*.orig
-*.rej
-*.diff
-*.patch
-*.tmp
-*.db
-*.sql
-*.sqlite
-*.sqlite3
-*.dump
-*.backup
-*.bak
-*.gz
-*.zip
-*.tar
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.rar
-*.7z
-*.iso
-*.img
-*.dmg
+*.swo

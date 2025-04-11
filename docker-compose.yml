@@ -1,4 +1,5 @@
-version: '3.8'
+version: '3.1'
+
 services:
   web:
     image: odoo:18
@@ -7,14 +8,13 @@ services:
     ports:
       - "8069:8069"
     volumes:
-      - ./config:/etc/odoo
+      - odoo-web-data:/var/lib/odoo
       - ./addons:/mnt/extra-addons
-      - ./data/odoo:/var/lib/odoo
+      - ./config:/etc/odoo
     environment:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
-    restart: unless-stopped
 
   db:
     image: postgres:15
@@ -24,5 +24,8 @@ services:
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data/pgdata
-    restart: unless-stopped 
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+
+volumes:
+  odoo-web-data:
+  odoo-db-data: 
